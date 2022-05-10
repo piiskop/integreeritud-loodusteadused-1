@@ -1,0 +1,75 @@
+```{=tex}
+\onecolumn
+```
+
+# Loodusteadused ja jätkusuutlik areng
+
+## Koht haridussüsteemis
+
+Eesti haridussüsteem koosneb üld-, huvi- ja kutseharidusest ning haridustasemeid on neli: alus-, põhi-, kesk- ja kõrgharidus, millest viimane on hariduse kolmas tase [@eesti]. Kõrgharidust saab omandada rakenduskõrgkoolides ja ülikoolides. Eestis on seitse ülikooli, millest kuus on avalik-õiguslikud ja üks erakõrgkool [@ehis]. Kõrghariduse tasemeid on kolm: bakalaureuse- ja rakenduskõrghariduse, magistri- ja doktoriõpe [@krgharidusseadusriigi], millest esineb ka bakalaureuse- ja magistritaseme kombineeritud vorm. Bakalaureuseõpe kestab kolm kuni neli aastat ning sisaldab haridusvõimsust 180 kuni 240 punkti ulatuses. mina õpin avalik-õiguslikus Tallinna Ülikoolis bakalaureuseõppes. Joonisel \@ref(fig:estonian-education-system) on esitatud Eesti haridussüsteemi skeem.
+
+```{=tex}
+\begin{comment}
+    \begin{figure}
+
+\begin{tikzpicture}
+	[
+	sibling distance=80pt,
+	box/.style={rectangle,draw},
+	level 1/.style = {red, level distance = 32pt},
+	level 2/.style = {red, level distance = 128pt},
+	level 3/.style = {blue, level distance = 32pt},
+	level 4/.style = {blue, level distance = 32pt},
+	level 5/.style = {green!50!black, level distance = 32pt},
+	grow cyclic,
+	every child node/.style={box}
+	]
+	\node[box] (system) {Eesti haridussüsteem} [grow cyclic absolute]
+	child [sibling angle = 90] {node[box] {Liigid} [counterclockwise from = 45, sibling angle = 45]
+		child {node[box] {üldharidus}}
+		child {node[box] (interests) {huviharidus}}
+		child {node[box] {kutseharidus}}
+	}
+	child [sibling angle = 270] {node[box] {Tasemed}
+		child [sibling angle = 0] {node[box] {alusharidus}}
+		child [sibling angle = 350] {node[box] {1. põhiharidus}}
+		child [sibling angle = 330] {node[box] {2. keskharidus}}
+		child [sibling angle = 180] {node[box] {3. kõrgharidus}
+			child [level distance = 64pt, sibling angle = 330] {node[box] {Koolid}}
+			child [sibling angle = 225] {node[box] {Tasemed}}
+		}
+	}
+	;
+	\begin{pgfonlayer}{background}
+		\draw [concept connection]
+		(system.south east) edge (interests.south east);
+	\end{pgfonlayer}
+	
+\end{tikzpicture}
+\end{figure}
+\end{comment}
+```
+
+```{r estonian-education-system, fig.cap = "Eesti haridussüsteem: sama valgest taustast erineva värviga on tähistatud seosed, lilla taustaga on minuga seotud üksused.", echo = FALSE, out.width = "24cm", out.height = "16cm", out.extra='angle=90'}
+include_svg("akadeemiline-suund/eesti-haridussüsteem.svg")
+```
+
+Tallinna Ülikooli akadeemilised üksused on kuus instituuti, millest igaüks toetab üht viiest fookusvaldkonnast, välja arvatud teisi instituute toetav Digitehnoloogiate instituut, ja kolledž [@a2018_struktuur]. Viis arendatavat fookusvaldkonda on haridusuuendus, digi- ja meediakultuur, kultuurilised kompetentsid, terve ja jätkusuutlik eluviis ning ühiskond ja avatud valitsemine [@arengukava]. Fookusvaldkondi toetavad instituudid on Haridusteaduste, Loodus- ja terviseteaduste, Balti filmi, meedia ja kunstide, Humanitaarteaduste ning Ühiskonnateaduste instituut[@tallinna-struktuur]. mina õpin Loodus- ja terviseteaduste instituudis.
+
+Loodus- ja terviseteaduste instituudi akadeemilised suunad on liikumis-, tervise- ja sporditeadused, loodusainete ja tehnoloogia didaktika, loodusteadused ja jätkusuutlik areng ning psühholoogia ja käitumisteadused [@akadeemilised-suunad]. Selles instituudis saab õppida viit eriala: bioloogiat, integreeritud loodusteadusi, kehakultuuri, psühholoogiat ja rekreatsioonikorraldust [@erialad]. minu õppekava on *Integreeritud loodusteadused, BSc*[@akadeemilised-suunad] ning kui see õppekava siduda konkreetse akadeemilise suunaga, siis tundub, et sellega näidatakse Loodus- ja terviseteaduste instituudi *loodusteaduste ja jätkusuutliku arengu* suunda[@int-loo] - mitte üheski kirjalikus dokumendis seda seost fikseeritud ei paista olevat.
+
+```{=tex}
+\twocolumn
+```
+
+## Aktuaalsed küsimused loodusteaduste ja jätkusuutliku arengu akadeemilises suunas
+
+Loodusteaduste ja jätkusuutliku arengu akadeemilist suunda juhib Neeme Lumi [@akadeemilised-suunad]. minul on temaga kokkupuude neljapäeviti soojusõpetuse praktikumides.
+
+Vastavalt kodulehel olevale teabele tähendab selle suuna järgimine õppe- ja teadustegevust "bioloogia, füüsika, geoökoloogia, keskkonnakorralduse, biokeemia ning ökoloogia alal" [@akadeemilised-suunad]. Rõhutatakse ökoloogilisi uuringuid, loodusteaduslikke rakendus- ja alusuuringuid, keskkonnamõju hindamist ning koostööd säästva arengu põhimõtete teema integreerimiseks haridussüsteemi ja ühiskonnakorraldusse. Tegevustega seoses tunnustatakse ökoloogia keskust.
+
+Loodus- ja terviseteaduste instituudi arengukava on koostatud aastani 2022 [@loodusja]. Lubatakse täiendada magistriõppe ühismooduleid ja paindlikkust üliõpilastele, rakendada teadustöö tulemusi õppetegevuses, suurendada jätkusuutliku arengu kursuste arvu keskkonnakorralduse erialas. Ühtlasi teatati 2021. aasta novembris, et keskkonnakorralduse magistriõpe Tallinna Ülikoolis suletakse [@a2021_tallinna]. Veel lubatakse jätkata loodusteaduste sidumist tervise ja heaolu alaste uuringutega. Olulisel kohal on põhjaveest sõltuvad ökosüsteemid, biopolümeerid, juhuslikud protsessid, plasma mõju, molekulaarteaduste teenuspaketid, keskkonnamuutused. Soovitakse tugevdada jätkusuutliku arengu uurimisega seotud teadussuunda Tallinna Ülikoolis.
+
+Lubatakse selgitada välja ajalised muutused tormide sageduses, töötada välja jätkusuutlikku arengut toetavaid kommunikatsiooni- ja haridustegevusi ning taimse biomassi vääristamiseks sobilikke tõhusaid meetodeid, arendada välja hüdroloogiliste toimimismehhanismide modelleerimine, arendada mitmeid _-loogilisi_ uurimismeetodeid ja inimesi jätkusuutlikumaks, soovitakse ennustada keskkonna muutlikkust ajas, jätkata uuringuid loodusvarade kasutamisest ja seisundi taastamisest.
+
+Ka Tallinna Ülikooli enda arengukava on koostatud aastani 2022 ning selles rõhutatakse rahvusvahelistumist ja interdistsiplinaarsust [@arengukava].

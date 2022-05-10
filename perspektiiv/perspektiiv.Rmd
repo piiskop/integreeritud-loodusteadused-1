@@ -1,0 +1,255 @@
+# Integreeritud loodusteaduste õppe perspektiiv
+
+## Integreeritud loodusteaduste õppekava klassifikatsioon
+
+The International Standard Classification of Education (ISCED) on raamistik ülemaailmse haridusstatistika tegemiseks [@a2014_isced]. Selle raamistiku haridusvaldkondade klassifikatsioon on ISCED Fields of Education and
+Training (ISCED-F), milles jaotatakse haridusvaldkonnad kümneks: üldprogrammid ja kvalifikatsioonid, haridus, kunstid ja humanitaaria, sotsiaalteadused, ajakirjandus ja teave, ärindus, haldus ja õigus, loodusteadused, matemaatika ja statistika, informatsiooni- ja kommunikatsioonitehnoloogiad, tehnika, tootmine ja ehitus, põllumajandus, metsandus, kalandus ja veterinaaria, tervis ja heaolu ning teenindus. Nendest loodusteadused, matemaatika ja statistika jaotatakse bioloogiaks ja sellega seotud teadusteks, keskkonnaks, füüsikalisteks teadusteks ning matemaatikaks ja statistikaks, millest keskkond jaguneb omakorda keskkonnateadusteks ning looduskeskkonnaks ja eluslooduseks. Eesti Hariduse Infosüsteemi õppekavade registri väljavõttes [@ehis] on veel liigitatud 27 väidetavalt ISCED-F'i õppekava grupi järgi, mille kohta ma mujalt teavet ei leidnud.
+
+minu integreeritud loodusteaduste õppekava on märgitud loodusteaduste, matemaatika ja statistika õppevaldkonna ehk õppekava grupi keskkonna õppesuuna keskkonnateaduste õppekavade rühma ehk õpperühma [@ehis; @tl]. Tallinna Ülikoolis on veel üks keskkonnateaduste õppekava - geoökoloogia [@ehis], kuid kui süübida, siis selgub, et selle õppekava järgi on õppimine keelatud [@ehiseduee], nii et õppida tohib Tallinna Ülikoolis ainult integreeritud loodusteadusi keskkonnateaduste seas.
+
+Haridusvaldkondadest annab ülevaate joonis \@ref(fig:educational-branches).
+
+```{r educational-branches, fig.cap = "Haridusvaldkonnad: teekond minu integreeritud loodusteaduste õppekavani on märgitud lilla taustaga.", echo = FALSE, out.width = "24cm", out.height = "7cm", out.extra = "angle = 65"}
+include_svg("perspektiiv/haridusvaldkonnad.svg")
+```
+
+```{=tex}
+\onecolumn
+```
+
+## Koormus ja majanduslik perspektiiv
+
+Ühe aasta kohta arvestatakse $\nolinebreak{60 \times \mathrm{EAP}}$. Täiskoormusega õpe tähendab vähemalt $22.5 \times \mathrm{\frac{EAP}{semester}}$. mina õpingi täiskoormusega, isegi ülekoormusega, sest alustanuna oma õpinguid Tallinna Ülikoolis 2021. aasta septembris, läbisin ma esimeses semestris $\nolinebreak{33 \times \mathrm{EAP}}$ ja praegu ehk teises semestris on mu õppekoormus $\nolinebreak{36 \times \mathrm{EAP}}$. Võttes arvesse ühe EAP väärtust tundides, tähendab üks aasta õppimist:
+
+```{r learning-h-per-year}
+LEARNING_H_IN_A <- convert_from_s_to_h(EAP * 60)
+```
+
+Aastas on $\nolinebreak{`r LEARNING_H_IN_A` \times \mathrm{h}}$ üliõppimist.
+
+Et võrrelda õppekoormust standardse töökoormusega lasen välja arvutada ligikaudse keskmise töötundide arvu aastas. Keskmiselt on aastas
+
+```{r d-in-a-less-vacation}
+D_IN_A_LESS_VACATION <- D_IN_A - VACATION_D_IN_A
+```
+
+`r D_IN_A_LESS_VACATION` puhkusest ülejäävat päeva. Arvestades tööaja iganädalast kestust, on aastas
+
+```{r d-in-a-less-vacation-less-weekends}
+D_IN_A_LESS_VACATION_LESS_WEEKENDS <- D_IN_A_LESS_VACATION * W_D_IN_WEEK / D_IN_WEEK
+```
+
+`r D_IN_A_LESS_VACATION_LESS_WEEKENDS` puhkusest ja nädalalõppudest ülejäävat päeva. Kuigi ei *Töölepingu seaduses* ega ka *Pühade ja tähtpäevade seaduses* [@phade] ei sätestata, et riigipühad ja rahvuspüha on töövabad päevad, kästakse nendes päevades tehtavat tööd topelt tasustada, mistõttu üldiselt neid päevi tööpäevana ei käsitleta. Teoses *Kik* on esitatud 2022. aasta puhkepäevad [@kik]. Arvestangi, et viiel päeval lisaks puhatakse:
+
+```{r d-in-a-less-vacation-less-weekends-less-holidays}
+D_IN_A_LESS_VACATION_LESS_WEEKENDS_LESS_HOLIDAYS <- D_IN_A_LESS_VACATION_LESS_WEEKENDS - 5
+```
+
+Järele jääb `r D_IN_A_LESS_VACATION_LESS_WEEKENDS_LESS_HOLIDAYS` mittepuhkepäeva ehk
+
+```{r h-in-a-less-vacation-less-weekends-less-holidays}
+H_IN_A_LESS_VACATION_LESS_WEEKENDS_LESS_HOLIDAYS <- D_IN_A_LESS_VACATION_LESS_WEEKENDS_LESS_HOLIDAYS * W_H_IN_D
+```
+
+`r H_IN_A_LESS_VACATION_LESS_WEEKENDS_LESS_HOLIDAYS` mittepuhketundi aastas.
+
+Lisaks lühendatakse kuni neljas päevas aastas tööaega kolme tunni võrra. Selliseid päevi on 2022. aastas kolm.
+
+```{r w-h-in-a}
+W_H_IN_A <- H_IN_A_LESS_VACATION_LESS_WEEKENDS_LESS_HOLIDAYS - 3 * 3
+```
+
+Aastas on keskmiselt ligikaudu `r round(W_H_IN_A)` töötundi.
+
+Seega oleme meie, tudengid,
+
+```{r delta-w-h-in-a}
+DELTA_W_H_IN_A <- W_H_IN_A - LEARNING_H_IN_A
+```
+
+$\nolinebreak{`r round(DELTA_W_H_IN_A)` \times \mathrm{h}}$ plussis, mis tähendab, et nii palju aega saaks kasutada lisatöö tegemiseks. Tööpäevades on see
+
+```{r delta-w-d-in-a}
+DELTA_W_D_IN_A <- DELTA_W_H_IN_A / W_H_IN_D
+```
+
+`r round(DELTA_W_D_IN_A)` ehk päevades
+
+```{r delta-d-in-a}
+DELTA_D_IN_A <- DELTA_W_D_IN_A * D_IN_WEEK / W_D_IN_WEEK
+```
+
+`r round(DELTA_D_IN_A)`. Vastavalt Tallinna Ülikooli akadeemilisele kalendrile on koolivaba aeg
+
+```{r break-d-in-a}
+BREAK_D_IN_A <- as.numeric(as.Date("2022-08-29") - as.Date("2022-07-01"))
+```
+
+$\nolinebreak{`r BREAK_D_IN_A` \times \mathrm{d}}$ [@a2018_akadeemiline]. Kui kasutada need ülejäävad päevad töötegemiseks suve vaheajas, siis jääb veel
+
+```{r break-d-in-a less-delda-d-in-a}
+BREAK_D_IN_A_LESS_DELTA_D_IN_A <- BREAK_D_IN_A - DELTA_D_IN_A
+```
+
+$\nolinebreak{`r round(BREAK_D_IN_A_LESS_DELTA_D_IN_A)` \times \mathrm{d}}$ päeva üle puhkamiseks.
+
+üliõpilane saab taodelda vajaduspõhist õppetoetust, mille suurus arvestatakse õppeaasta algusele eelneva aasta sissetulekute põhjal [@a2014_ppetoetus]. Kui toona oli sissetulek piisavalt suur, siis on toetus vastavalt väiksem. Õppimise kestel ja isegi pool aastat enne õppimist ei pruugi tudeng üldse töist sissetulekut saada, mistõttu ei pruugi selline toetuse arvestamine teda piisavalt aidata. mina saan kõige väiksema määraga vajaduspõhist õppetoetust, kuna 2020. aastas oli mu sissetulek piisavalt suur. Ometi ei ole mul praegu sellist töist sissetulekut ega saagi ülekoormusega õppimise kõrval olla, mistõttu vajaduspõhise toetuse süsteem ei toimi tõhusalt, kuna selles võetakse arvesse enam mitte aktuaalsena olla pruukivat olukorda ja mitte hetkeolukorda.
+
+Lisaks on võimalik tudengil saada tasemeõppes osalemise toetust, mille summa on 292 eurot kuus [@ttukassa].
+
+Kui need kaks igakuist toetussummat kokku liita, siis minul jääb veel teist sama palju vajaka. Et puuduolev summa kahe suvekuuga tasa teha, peaks kuupalk olema umbes 3000 eurot. Ei ole hästi mõeldav, et peale kümnekuist vaimset pingutust tahaksin ma veel kaks kuud nii palju pingutada, et siis jälle kümme kuud pingutada ja veel kaks kuud pingutada. Vahepealne koolivaba ajavahemik on selleks ette nähtud, et suurest õppepingutusest puhata. Nii et täiskoormusega õppides ei ole tervislik lisaks töötada. Alternatiiv on õppida osakoormusega ja ise õppe eest tasuda, mis tähendab siiski kordades pikemat õppe kestust.
+
+Kuna õppevaheaeg on pikem kui nominaalpuhkus tööst, siis võib olla õppetegevus kontsentreeritum kui töine tegevus. Kas see nii on, näitab järgnev arvutuskäik:
+
+```{r delta-learning-h}
+DELTA_LEARNING_H <- (((D_IN_A - BREAK_D_IN_A) * W_D_IN_WEEK / D_IN_WEEK - 5) * W_H_IN_D - 3 * 3) - LEARNING_H_IN_A
+```
+
+Õppetegevusest jääb semestrite kestusse üle $\nolinebreak{`r round(DELTA_LEARNING_H)` \times \mathrm{h}}$, mis on
+
+```{r w-h-in-learning-d}
+W_H_IN_LEARNING_D <- DELTA_LEARNING_H / ((D_IN_A - BREAK_D_IN_A) * W_D_IN_WEEK / D_IN_WEEK - 5) 
+```
+
+`r round(W_H_IN_LEARNING_D, digits = 1)` tundi õppepäevas, kui töötunnid õppepäevade vahel võrdselt jaotada. Nii et veidi on aega kooli kõrvalt tasustatud teenus(t)e osutamiseks, et katta puuduolev summa, mis eeldab oskust ja võimekust seda teha.
+
+Seega on majanduslikult teoreetiliselt võimalik integreeritud loodusteaduste eriala täiskoormusega õppida, ilma selleks eelnevalt finantsvaru omamata. Praktiline teostamine eeldab oskust ja võimekust õppetegevuse kõrvalt tasulisi teenuseid osutada arvestades selleks ajalisi piiranguid.
+
+Eelnevalt lasin välja arvutada, et õppetegevusest jääb semestrite kestusse üle $\nolinebreak{`r round(DELTA_LEARNING_H)` \times \mathrm{h}}$, mida saab kasutada ka ülekoormusega õppimiseks. Sellises juhus on võimalik aastas juurde õppida
+
+```{r additional-eap}
+ADDITIONAL_EAP <- DELTA_LEARNING_H / convert_from_s_to_h(EAP)
+```
+
+$\nolinebreak{`r round(ADDITIONAL_EAP)`} \times \mathrm{EAP}$ ulatuses. Kuna minul on esimeses õppeaastas juba üheksa lisaainepunkti, siis on mul puhkeaega liialt vähe ja tervislik oleks järgnevates õppeaastates siiski mitte üle $\nolinebreak{32 \times \mathrm{EAP}}$ semestri kohta deklareerida.
+
+## Õppekava sisu ja senine õpe
+
+Olles aastaid õpetanud tennist, informaatikat ja matemaatikat avastasin 2020. või 2021. aastas, et Tabasalu Gümnaasiumi otsiti õpetajat, kes oskaks õpetada nii matemaatikat, füüsikat, keemiat, maateadust kui bioloogiat. Tundsin huvi, kus üldse nende kõige õpetajaks õppida saab. Leidsin selleks Eestis kaks võimalust: Tartu Ülikoolis loodus- ja reaalainete õpetamine põhikoolis [@a2022_loodus] ja Tallinna Ülikoolis integreeritud loodusteadused [@int-loo]. Valida oli ka Tallinna Ülikooli gümnaasiumi loodusteaduslike ainete õpetaja magistriõpe [@a2018_gmnaasiumi], kuid seda tutvustavas vestluses [@gmnaasiumi] veendusin, et mul polnud piisavalt erialaseid oskusi ning nende omandamiseks otsustasin läbida eelnevalt bakalaureusetaseme õppe. Kui võrrelda Tartu ja Tallinna Ülikooli vastavaid õppekavasid, siis paistab, et Tartus on põhirõhk juba algusest peale vastavalt õppekava nimetusele õpetamise õppimisel, Tallinnas pigem loodusteaduste sisul. Tartus õppimine oleks kaugust arvestades ka kulukam, mistõttu asusin õppima Tallinna Ülikooli.
+
+Tallinna Ülikooli integreeritud loodusteaduste õppekava järgides saab teoreetiliselt õppida integreeritult bioloogiat, maateadust, füüsikat ja keemiat. Praktiliselt ei ole seda siiski võimalik teha, sest nende kõikide valdkondade läbimiseks tuleks õppida üle kahe korra kauem kui nominaalõppeaeg. Seetõttu peale esimese semestri sissejuhatust tudeng valib, millisesse suunda nendest neljast ta spetsialiseerub. Sõltuvalt valdkonnast saab valida ka kaks või kolm neljast, kuid siis ei ei jõuaks bakalaureuseõppe nominaalkestusega kõiki valitud mooduleid täies mahus läbida.
+
+Esimeses semestris toimuvad õppesessioonid peamiselt keskkoolis ja põhikoolis õpitu kordamiseks ja ülikoolis õppimise tutvustamiseks. Neile, kes on värskelt keskkooli lõpetanud, on esimene semester võrdlemisi lihtne. Iga nelja loodusteaduse esimese kursuse alguses testitakse õpilasi ja kui õpilase teadmised-oskused on piisaval tasemel, ei pea ta kursust läbima ja saab keskenduda rohkem nendele kursustele, milles tema teadmised-oskused veel piisavad ei ole. Kui keskkooli lõpetamisest on palju aega möödas ja vahepeal ei ole loodusteadustega süvitsi tegeletud, õpitakse esimese semestri kursustega intensiivkorras kogu vajalik baas edasiseks.
+
+Üleülikoolilised kursused on akadeemilised õpioskused ja sissejuhatus fookusvaldkonda, digipädevus ja akadeemilised väljendusoskused, looduse seadused ja Erialasid Lõimiv Uuendus. Esimesed kolm on mõeldud läbimiseks esimese õppeaasta kestel. Esimest kaht läbides saab tudeng ülevaate ülikoolist kui ka baasoskusi akadeemiliseks õppimiseks. Varasemate õpingute ja töökogemuse alusel saab küll märkida kursuseid sooritatuks, kuid kui kursus sisaldab osaliselt seda, mida tudeng juba oskab, ja osaliselt seda, mida ta tahaks juurde õppida, siis on tal vajalik kursus ikkagi tervikuna läbida, mis on kordamise seisukohalt hea, ent selle ajaga, mis kulub juba  õpitu kordamiseks, saaks tudeng keskenduda millegi muu uue õppimisele [@study-rules, pp. 19-20]. Värskelt keskkoolist tulnud tudengitele on need kursused siiski tervikuna vajalikud. Kui ma 1996. aastal asusin Tallinna Ülikooli õppima, selliseid põhjalikke sissejuhatavaid kursuseid ei olnud. Õppekorralduse, kontoritarkvara kasutamise ja eesti keele jaoks olid eraldi kursused ja õppimise õppimisest ei räägitudki meile toona. Kui nendes kursustes käsitletavad praktilised oskused on akadeemiliseks õppimiseks vajalikud, siis fookusvaldkondade tutvustamine tundub olevat üleliigne, sest tudeng on ikkagi tulnud õppima eriala, mitte kooli.
+
+Looduse seadused on kursus iga loodusteaduse seaduste tutvustamiseks, enne kui neid süvitsi tundma õppima asutakse. Ilma praktikata ja ka teoreetiliselt süübimata on siiski keeruline nendest kõikidest kohe aru saada ja neid meelde jätta. Ühtlasi tutvustatakse selle kursuse kaudu eri õpetajaid, kellega õpilased varem või hiljem mingi muu kursuse raames kokku puutuda võivad.
+
+Ülekooliliseks lõimimiseks on kursus Erialasid Lõimiv Uuendus, milles vähemalt kolme eriala tudengid viivad kuueses grupis ellu ühisprojekti. Selle kursuse sisu loovad seega tudengid ise ja selle kasulikkus sõltub sellest, kui hästi projekt teostatakse.
+
+Neli loodusteaduste baaskursust on üldbioloogia, füüsikaline maailma pilt, üldkeemia ja maateaduse alused. Üldbioloogia sellisel kujul, nagu seda Tõnu Ploompuu praegu õpetab, ei ole kasulik, kuna ta on ainus enda kursuse põhiõpetaja, kes küsib tudengitelt tagasisidet alles kursuse lõpus ning vahepeal ei saa tudeng ennast kontrollida, kus ta järjega on. Tõnu räägib nii aeglaselt, et enne, kui ta lause lõpetada jõuab, läheb mõte rändama mujale. Ühtlasi ei arvesta ta tudengite taustaga, mistõttu nt minul ei olnud tema räägitust väga võimalik aru saada, sest puudusid vajalikud alusoskused, mille ma sain, kui peale kursust ja enne eksamit eraldi õpikut lugesin, milles on värvilised pildid ja simulatsioonid võrdlemisi Tõnu kahevärvilise tekstilise mõistete loendiga. Kui tema kuulamise asemel lugeda teost *EARTHDANCE:
+Living Systems in Evolution* [@maailma-tants], saab lihtsalt ja kiiresti ülevaate, mida on, kuhu laduda.
+
+Kõigile õpetajatele eeskujuks võib sättida füüsikalise maailma pildi õpetaja Ako Sauga, kes õpetab süsteemselt, kompaktselt ja värvikalt. Tal on iga nädala kohta eraldi teema ja iga teema kohta enesekontrolli test, mis aitab tudengil järge pidada. Kursus lõpeb automaatkontrolliga eksamiga, mille teooriaküsimused on valitud eelnevate iganädalaste enesekontrolli testide küsimuste seast.
+
+Üldkeemia koosneb teooriaosast ja kirjalikust ülesannete lahendamisest. Kui Kalle Truus loeb justkui entsüklopeediat ette, siis Kert Martma oskab ilmekalt selgitada. Korraldus selles kursuses on siiski segane, mis tuleneb ilmselt sellest, et õpetajatel on palju tegemist ja ei jõuta korralikult omavahel kokku leppida ja ette valmistada.
+
+Maateaduse alustes räägivad eri teemadel eri õpetajad ning lahendada tuleb ka praktilisi ülesandeid. Maateaduse teemade õppimises tundsin kõige enam puudust simulatsioonivahenditest. 2017. a koostati finantseerimistaotlus selliste vahendite soetamiseks, mida ei rahuldatud [@geoteaduste].
+
+Kuna igas loodusteaduses kasutatakse matemaatilisi mudeleid, siis pakutakse esimeseks semestriks kaks matemaatikakursust: matemaatilised meetodid loodusteadustes ja üldmõõtmised loodusteadustes. Nendest kahest kursusest esimeses korratakse mõningaid teemasid keskkoolist ja paar teemat on ka uued. Valik on koostatud selliseks eeldades, et just neid teemasid läheb kõige enam loodusteadustes vaja. Üldmõõtmiste kursus tähendab statistikakursust, milles kasutatakse kontoritarkvara, et teha statistilisi analüüse. Alates teisest semestrist saab õppida andmeanalüüsi, mille jaoks kasutatakse statistikaprogrammi *SPSS* [@spss], põgusalt tutvustatakse R'i [@r] ja praktikumides saab katsetada eri mõõteseadmetega (joonis \@ref(fig:mechanics)). Vastavalt OSKA raportile on programmeerimise valdkond kiireima kasvuga [@Kutsekoda, p. 17]. Statistikakäsitlus on vähemalt üldmõõtmiste ja andmeanalüüsi kursuses liiga põgus ning ei tekita mõnusat arusaamise tunnet.
+
+(ref:tl-citation) @tl 
+
+```{r mechanics, fig.cap="Güroskoobi tööpõhimõtte uurimine mehaanika laboris füüsikaõpetamiseks vajaliku varustusega ruumis $A-403$ ajahetkel 20220506133237. Integreeritud loodusteaduste õpilane Birgit Avistu uurib güroskoobi liikumist selle mõjutamisel käega. Integreeritud loodusteaduste õppekava kuraator ja mehaanikapraktikumide juhendaja Katrin Laas suurendab samal ajal güroskoobi ratta pöördeid ((ref:tl-citation)). Punapäine pedagoogikatudeng Edith Merila tegutseb taamal teise seadmega. mina jäädvustasin.", out.width="\\textwidth", fig.align="center", echo=FALSE}
+librarian::shelf(knitr)
+include_graphics(path = "perspektiiv/cap_VID_20220506_133237_00:00:24_01.jpg")
+```
+
+Kuna eri kursuste õpetamises puudub ühtne stiil ja süsteem ning teemade käsitlemine ei ole omavahel seostatud, siis võiks õppekava nimetus olla pigem *desintegreeritud loodusteadused*.
+
+Enne esimese semestri algust testitakse tudengi inglise keele oskus ja vastavalt selle testi tulemusele on tal vaja läbida kas kaks keelekursust või üks keelekursus.
+
+Sooritada tuleb ka erialapraktika ja bakalaureusetöö. Viimase ettevalmistamiseks on Tallinna Ülikoolis nii nimetatud kaks baaskursust akadeemiliseks õppimiseks kui vastav seminar. Sellist tuge minu esimese bakalaureusetöö tegemiseks ei olnud ja selline uuendus on väga abiks.
+
+Integreeritud loodusteaduste õppekava läbinud tudengid saavad Gaia hariduse sertifikaadi [@tallinna].
+
+Õppekava keel on eesti.
+
+## Muutused õppijate arvus
+
+"Inimarengu indeks on saavutuste kokkuvõtlik näitaja kolmes inimarengu võtmemõõtmes: pikk ja terve elu, juurdepääs teadmistele ja korralik elatustase." [@a2020_calculating] Eesti asub inimarengu indeksi järgi 29. positsioonil maailmas [@hdr-2020, pp. 356]. Inimeste oodatav eluiga on veidi suurenenud ja püsib praegu paigal või näitab kerget langemist[@oodatav-eluiga]. See on vähemalt 74 aastat ja see tähendab vähemalt 74-aastast elukestvat õppimist. 2019. a ennustati oodatud kooliõppimise kestuseks ühe inimese kohta 15 kuni 17 aastat [@hdr-2020, p. 356]. See tähendab, et eeldatakse vähemalt bakalaureusekraadi saavutamist. Eestis on 44611 üliõpilast, kellest 30572 õpivad kõrghariduse esimesel tasemel, kellest omakorda 15786 üliõpilast õpivad bakalaureuseõppes [@haridusandmete]. Viimastest 3705 üliõpilast õpivad Tallinna Ülikoolis, kellest 1649 õpivad loodusteaduste, matemaatika ja statistika valdkonnas. 
+
+Integreeritud loodusteaduste tudengite arv Tallinna Ülikoolis on viimased neli aastat näidanud tõusutrendi olles 2021./2022. õppeaastas 66. Nendest neli maksavad oma õppimise eest ise. Kõik 66 on kohalikud tudengid. Samal ajal õpib terves loodusteaduste, matemaatika ja statistika valdkonnas Tallinna Ülikoolis 252 tudengit. Teistes loodusteaduste, matemaatika ja statistika valdkonna õppeprogrammides õpib sama suurusjärk tudengeid, kõige rohkem - 71 - keskkonnakorralduses, kõige vähem - 57 - bioloogias.
+
+Enamus tudengeid, kes on asunud integreeritud loodusteadusi õppida, on siin maailmas elanud kuni $19 \times \mathrm{a}$, välja arvatud 2016. a, kui kõige enam tudengeid olid vanuserühmas 20 kuni 24 aastat. Alates 2019. a on õppekava järgima asunud ka inimesi, kelle keha vanus on 35 või enam aastat, millest paistab, et õppekava on atraktiivne sõltumata vanusest.
+
+Ainult 2018. a võeti integreeritud loodusteaduste õppesse rohkem mees- kui naisinimesi ja 2021. aastal esmakordselt ühepalju.
+
+Esimene tudeng, kes integreeritud loodusteaduste bakalaureusekraadi sai, lõpetas 2017. a. Järgmised kuus lõpetasid aasta hiljem. 2019. a lõpetas kaks tudengit, 2020. a kuus tudengit ja 2021. a kümme tudengit. Kokku loodusteaduste, matemaatika ja statistika valdkonnas lõpetas 2021. aastas 31 tudengit. Kõige enam lõpetanuid oli humanitaarteaduste valdkonnas - 184. Kuigi näeme viimase kolme aasta lõikes tõusutrendi, on lõpetanute arv võrdlemisi väike. Põhjuseid võib olla mitu: võidi vahetada eriala, üldse lahkuda või jääda kauemaks õppima. Tabelist \@ref(tab:number-of-students) näeme, et kõige enam väljalangemisi toimus õppeaastas 2017/2018.
+
+(ref:haridusandmete-citation) @haridusandmete 
+
+```{r number-of-students, attr.source = ".numberLines", echo=FALSE, message=FALSE}
+library(readxl)
+Üliõpilaste_arv_õppekeele_lõikes <- read_excel("perspektiiv/Üliõpilaste arv õppekeele lõikes.xlsx", 
+    sheet = "Export", range = "a2:b9")
+
+Vastuvõetud_üliõpilaste_arv_õppekeele_lõikes <- read_excel("perspektiiv/Vastuvõetud üliõpilaste arv õppekeele lõikes.xlsx", sheet = "Export", range = "a2:B9")
+
+Lõpetajad_õppekavade_lõikes <- read_excel("perspektiiv/Lõpetajad õppekavade lõikes.xlsx", sheet = "Export")
+
+graduates <- subset(Lõpetajad_õppekavade_lõikes, `Õppeaasta Desc` == "Integreeritud loodusteadused")[2:7]
+librarian::shelf(dplyr, tibble)
+graduates <- graduates %>% add_column(`2021/22` = NA,
+             .before = "2020/21") 
+Üliõpilaste_arv_õppekeele_lõikes <- Üliõpilaste_arv_õppekeele_lõikes %>% add_column(`Vastuvõetud` = Vastuvõetud_üliõpilaste_arv_õppekeele_lõikes$`Õppurite arv ap`, .before = "Õppurite arv ap")
+Üliõpilaste_arv_õppekeele_lõikes$`Lõpetanud` <- as.numeric(t(graduates))
+
+librarian::shelf(imputeTS)
+Üliõpilaste_arv_õppekeele_lõikes$`Väljalangenud` <- NA
+
+for(i in 2:nrow(Üliõpilaste_arv_õppekeele_lõikes)) {       # for-loop over rows
+  i
+  Üliõpilaste_arv_õppekeele_lõikes$`Väljalangenud`[i] <- na_replace(Üliõpilaste_arv_õppekeele_lõikes$`Õppurite arv ap`[i], 0) - na_replace(Üliõpilaste_arv_õppekeele_lõikes$`Lõpetanud`[i], 0) + na_replace(Üliõpilaste_arv_õppekeele_lõikes$`Vastuvõetud`[i - 1], 0) - na_replace(Üliõpilaste_arv_õppekeele_lõikes$`Õppurite arv ap`[i - 1], 0)
+}
+
+    if (knitr::opts_knit$get('rmarkdown.pandoc.to') == "docx") {
+      library(flextable)
+      flextable(Üliõpilaste_arv_õppekeele_lõikes)
+    } else {
+      library(kableExtra)
+      kable(
+    Üliõpilaste_arv_õppekeele_lõikes,
+    format = "latex",
+    booktabs = TRUE,
+    escape = FALSE,
+    caption = paste0("Integreeritud loodusteaduste tudengite arv alates aastast 2015", " ((ref:haridusandmete-citation))"),
+    digits = 3
+      ) %>% kable_styling(    bootstrap_options = c("striped", "bordered", "condensed", "responsive", "hover"),
+    latex_options = "scale_down",
+    full_width = TRUE
+      )
+    }
+    ```
+
+Loodusteaduste, matemaatika ja statistika valdkond on esindatud viies Eesti ülikoolis. Õppetöö katkestajate osakaal esimeses semestris on näidanud Tallinna Ülikoolis viimases kolmes aastas langustrendi olles siiski Eesti suurim - 29.8%. Ka üks mu kaastudeng otsustas detsembris kooli pooleli jätta, kuigi oli mulle septembris öelnud, et oli enda ellu ometi õige tee leidnud - loodusteaduste õppimise. ta ei pidanud koormusele vastu. Looduse seaduste kursuses vähenes saalis olevate üliõpilaste arv ühes ajavahemikus iga nädalaga. Õppimaasumine integreeritud loodusteaduste õppesse on võrdlemisi lihtne, sest piisab vaid argumenteerimise oskusest ja veenmisest, et suudetakse esimese semestriga vajalikud lüngad täita. Kui seda siiski ei suudeta, on edaspidi oluliselt raskem õppida, sest pole uut infot millelegi kinnitada, ja see suurendab õppest väljalangemise tõenäosust.
+
+Tudengite osakaal, kes õpingu hiljem kui esimeses semestris katkestavad, on Eesti väikseim - 14.1%. Sellest võib järeldada, et kes esimeses semestris enda lüngad täita suudab, saab ka edaspidi hakkama, kui just midagi olulisemat vahele ei tule. Ühtlasi ei ole see statistika täpselt integreeritud loodusteaduste tudengite, vaid terve valdkonna õppijate kohta.
+
+Kuni siiski veel õppivaid tudengeid jagub, on õppekaval perspektiivi.
+
+```{=tex}
+\twocolumn
+```
+
+## Väljavaated tööturul
+
+Integreeritud loodusteaduste õppe läbinud inimene omab väljavaateid mitmes rollis teenuseid osutama asuda. ta võib jätkata magistratuuris, hakata ise õpetama, inseneriks või laborandiks.
+
+Vastavalt 2021. a OSKA tööjõu vajaduse prognoosile on geotehnikainseneride järele nõudlus väike, kuid nende olemasolu hädavajalik [@Kutsekoda]. Eriti suur puudus olevat teede- ning veetehnika ja hoone tehnosüsteemide inseneridest. Geodeetide puhul tuntakse pigem puudujääki.
+
+Puudu on teemaõpetajatest, kuna liiga paljud senised teemaõpetajad on oma rollist lahkumas keha vanuse tõttu. Puudu on ka kutseõpetajatest, kelle roll täiskasvanute koolitajana kasvab. "Kriitiline on loodusainete ja
+matemaatikaõpetajate asendusvajadus: praegustest matemaatika-, keemia-, geograafia- ja
+bioloogiaõpetajatest on iga viies vähemalt 60-aastane ning füüsikaõpetajatest juba iga neljas." [@Kutsekoda, p. 70] "Üldhariduskooli vanema astme õpetajaks saab õppida TLÜ-s ja TÜ-s bakalaureuseõpingute järel
+magistriõppe õppekavade alusel, näiteks TLÜ-s [---] „Gümnaasiumi loodusteaduslike ainete
+õpetaja“ [@a2018_gmnaasiumi] [---] alusel." [@tjuvajaduse, p. 25]
+
+Keemiainsenere on pigem juurde vaja. Et katta keemiainseneride tööjõu vajadus, peaksid kõik bakalaureuseõppe lõpetajad edasi minema magistriõppesse. Keemiaprotsesside operaatoreid on vaja eelkõige Ida-Virumaasse. Puudu on automaatikuid ja mehhatroonikuid.
+
+Rõivatööstusse vajatakse rohkem konstruktoreid ja tootearendustehnolooge, samuti tehnikuid.
+
+Kriitiline puudus on veevarustus- ja kanalisatsiooniinseneride järelkasvust. Mainitakse ka kriitilist vajadust hüdroloogide järele ja et seda eriala Eestis ei õpetatavat, kuigi integreeritud loodusteaduste raames saab läbida hüdroloogia ja veemajanduse aluste kursuse ning terve maastiku hüdroloogia valikmooduli [@tl].
+
+Haridus- ja teadusministri käskkirjaga kinnitatud *Kõrgharidusprogrammis 2018-2021* sätestatakse loodus- ja täppisteaduste õppe lõpetanute osakaalu vajaduseks 2021. aastaks 30% [@krgharidusprogramm, p. 8].
+
+Kuigi loodusteaduste õppimine on oluline, ei ole tegemist siiski Tallinna Ülikooli Tallinna Ülikooli vastutusvaldkonnaga, milleks on hoopis "sotsiaalteenuste, õpetajakoolituse ja kasvatusteaduste, humanitaaria, keelte ja kultuuride, kunstide audiovisuaalsete tehnikate ja meedia tootmise õppekavarühmas, sotsiaalteadustes sotsioloogia ja kulturoloogia ning poliitikateaduse ja kodanikuõpetuse ning informaatika ja infotehnoloogia arvutikasutuse valdkonnas" [@err_2022_tallinna].

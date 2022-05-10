@@ -1,0 +1,135 @@
+```{=tex}
+\onecolumn
+```
+
+# Sissejuhatus {-}
+
+Tallinna Ülikooli kursuse *digipädevus ja akadeemilised väljendusoskused* üks osa on lühireferaadi loomine looja õppekava instituudi akadeemilise õppesuuna kohta, et loojal oleks edasiseks akadeemiliseks tegevuseks spikker, kuidas teha kirjalikke väljundeid.
+
+minu õppekava on *Integreeritud loodusteadused, BSc*[@akadeemilised-suunad] ning sellega näidatakse Loodus- ja terviseteaduste instituudi *loodusteaduste ja jätkusuutliku arengu* suunda[@int-loo]. Esimeses peatükis kirjeldan selle akadeemilise suuna kohta haridusüssteemis ja ajakohaseid küsimusi. Teises peatükis näitan, kus asetseb integreeritud loodusteaduste õpe, analüüsin õppekoormust ja majanduslikku võimekust õppida täiskoormusega, kirjeldan õppekava sisu ja õppetegevuse korraldust, muutusi õppijate arvus ja väljavaateid õppekava läbijaile tööturul.
+
+Lühireferaadi valmistamiseks on sätitud tingimused. Selle loomisel lähtusin *JUHENDist
+loodusteaduste ja loodusainete didaktika erialade
+lõputööde koostamiseks ja vormistamiseks * [@writings]. Vastavalt juhendile tohib teose liik olla seminari-, bakalaureuse- või magistritöö. Kuna see pole mitte kumbki viimane, siis jäi üle esimene. *Lühireferaati* juhendis ei mainita, kuid väidetakse, et seminaritöö on referatiivne [@writings, p. 3]. Juhendis on pikem loetelu teose komponentidest kui siin esitatu, sest juhendajapoolsed tingimused selle lühireferaadi valmistamiseks erinevad mõneti üldjuhendist.
+
+Tiitelleht on vormistatud vastavalt juhendile arvestades minimaalseid tingimusi ja vältides igasuguseid lisandeid.
+
+Lühireferaadi keel on õppekava ehk eesti keel.
+
+Juhendis on kirjas, et teos tuleb vormistada valgele paberile. Sellesama kursuse raames rääkis meile Kalle Kivi, et valget paberit leida on üsna võimatu. Liiatigi on tegemist inimese poolt subjektiivselt omistatud nimetusega lainepikkusele või nende vahemikele ning kuna juhendis ei ole lainepikkust sätestatud, lähtun enda subjektiivsest valge värvuse määratlusest, mis on vaikimisi tausta värv. Lehe vorming on *A4*. Ridade arv leheküljel sõltub kirja suurusest, reavahest, lehe ülemise ja alumise vaba ruumi suurusest. Kui 1990'ndates aastates soovitati pealkirjad vormistada konksudeta ja sisutekst konksudega kirjastiiliga, siis siinse teose valmistamise juhendis seda eristust ei tehta. Väljatrükitud kujul olevat parem lugeda konksudega teksti, kuvalt ilma konksudeta teksti. Ilmselt mitte keegi seda lühireferaati välja ei trüki, mistõttu oleks mõistlik kasutada konksudeta stiili, kuid mis siis, kui keegi ikka otsustab trükkida? Ma ei tea, et Portable-Document-Formatis (PDF) saaks selliseid tingimusi seada nagu Cascading-Stylesheets-vormingus. Seetõttu jätsin šrifti muutmata. Sättis paika kirjapunkti suurused ja reavahe. Jälgisin, et pealkirjas ei poolitataks sõnu.
+
+Lehe vasaku serva köitmisvaru on $3 \times 10^{-2} \times \mathrm{m}$, parempoolse serva laius on $2 \times 10^{-2} \times \mathrm{m}$,
+ülaserva laius $2 \times 10^{-2} \times \mathrm{m}$ ning alumise serva laius $2 \times 10^{-2} \times \mathrm{m}$. Kuigi 1990'ndates aastates soovitati teksti mitte joondada mõlemast servast, kuna see raskendab lugemist, lähtusin siinse teose koostamise juhendist ja ikkagi lasin teksti joondada mõlemast servast. Loetavuse parendamiseks, kus sain, tegin teksti kahetulbaliseks.
+
+Samaliigilised vahed on kogu teoses ühelaiused.
+
+Joonised on paigutatud selliselt, et need ei hakiks tekstilõike, mistõttu esineb mõnel lehel n-ö palju hingamisruumi.
+
+Juhendis on kirjas, et ühikud peavad olema püstkirjas, ometi sellessamas juhendis sedasama reeglit ei järgita [@writings, p. 13]. mina järgin.
+
+Viitan allikatele, millele olen ise ligi saanud. Viitamises lasen kasutada ülemaailmselt tuntud lühendeid, neid muutmata. Juhendaja juhtis mu tähelepanu lühendile *s.a.*: "Kasutatakse pigem n.d. või kuupäev puudub." Vastasin: ""n.d." on ingliskeelses teoses. Ma sättisin keeleks eesti keele. Leidsin, et eestikeelses versioonis kasutatakse hoopis ladinakeelset lühendit "s.a." (https://www.yti.ut.ee/et/viitamine), mis tähendab "sine anno" ehk "ilma aastata"."
+
+Kuna lühireferaat peab sisaldama lisaks tekstile ka vähemalt 1 korrektselt viidatud joonist, 1 korrektselt viidatud fotot, 1 korrektselt viidatud tabelit ja 1 korrektselt viidatud graafikut, siis siinkohal esitan loetelu nendest üksikasjadest:
+
+1. joonised on \@ref(fig:estonian-education-system), \@ref(fig:educational-branches) ja \@ref(fig:mechanics),
+
+2. foto on \@ref(fig:mechanics),
+
+3. tabel on \@ref(tab:number-of-students) ning
+
+4. graafikud on \@ref(fig:estonian-education-system) ja \@ref(fig:educational-branches).
+
+Automaatselt on koostatud sisukord, allikate loend ja viited, numeratsioon. Eri tekstiosade tüüpide jaoks olen määratlenud stiilid või kasutanud vaikestiile.
+
+Lühireferaadis peab olema kaheksa kuni kümme kasutatud allikat. Minu lühireferaadis on neid oluliselt rohkem, sest kust iganes ma lähteandmeid leidsin, nende päritolule ka viitasin. Nõutud olid teatud allikate tüübid, mistõttu esitan siin iga tüübi kohta ühe näite:
+
+1. raamat [@a2014_isced], kokku kolm,
+
+2. mitme autoriga teadusajakirja artikkel [@hdr-2020],
+
+3. artikkel elektroonilises teadusajakirjas [@hdr-2020],
+
+4. Eesti ajakirjanduses ilmunud artikkel, autoriga [@err_2022_tallinna],
+
+5. autorita materjal veebi leheküljel [@a2018_gmnaasiumi], kokku 32.
+
+Lühireferaadis lasin läbivalt kasutada American Psychology *Associtationi* stiili, sest nii oli juhendaja poolt soovitud.
+
+Lühireferaadi juhendis on kirjas: "Referaat peaks olema esitatud .doc, .docx või office  formaadis et oleks võimalik jälgida vajalike digipädevuste rakendamist." Kui peaks, siis ei pea. Samuti on sõna *office* mitmetitõlgendatav. Kui *office* tähendab kontorit ja kontoris saab printida, siis prindifail võib olla PDF's.
+
+Siinkohal pean vajalikuks põhjendada, miks ma ei loonud seda lühireferaati tekstitöötluse kontoritarkvaraga. Oma esimese referaadi tegin ma kindlasti käsikirjas. Keskkoolis võtsin kasutusele kirjutusmasina, milleks oli vaja eelnevalt mustand korralikult ette valmistada, sest parandusi teha oli kohmakas. Kui sain mitme eesmärgi arvuti ja printeri kasutamise võimaluse, asusin selliseid teoseid valmistama n-ö kontoritarkvaraga, millest esimene oli vist *Microsoft Office*, mille kasutamist õppisin 1996. ja 1997. aastas Tallinna Tehnikaülikoolis [@msoffice]. Hiljem liikusin üle vabavarale ja võtsin kasutusse *OpenOffice* [@a2011_apache]. Viimase lähtekood lülitati kinniseks, mistõttu loodi *LibreOffice*, millest sai minu järgmine kontoritarkvara [@a2019_home]. Kui avastasin interneti kaudu ühistegevuse võimalused, läksin üle *Google Drive*'i peale [@a2019_meet]. Vahetevahel oli vaja ka sarnaseid MICROSOFTi keskkondi kasutada, kuni avastasin Läti ja Siberi venelaste poolt tehtud ONLYOFFICE'i, mille paigaldasin oma serverimasinasse ja mida kasutan tänini eelkõige teatud tabelarvutuste jaoks, mida on muu tarkvaraga tülikam teha [@online].
+
+2021\. a pöördusid mu poole Artur Klimson ja Andrei soovides abi statistikas kasutamaks statistikaprogrammi *gretl* [@baiocchi2003gretl]. Alternatiiv oli kasutada R'i [@r]. Hakkasin seda keelt uurima ja paigaldasin oma serverimasinasse RStudio Serveri [@rstudio], milles saab *bookdown*i kasutades ehitada R'i lähtekoodi kasutades veebi- ja muid väljundeid [@home]. Oma esimesed R'keelsed veebiväljundid lõin 2021. aasta sügissemestris [@heli]. Kui asusin tegema esimest füüsikalabori protokolli, mille pidin küll tegema käsikirjas, otsustasin sellegi jaoks R'i kasutada [@molecules]. Avastasin enda jaoks kujundus-, küljendus- ja programmerimiskeele Tau epsilon Chi (TeX) ning leidsin, et minu edasised trüki jaoks mõeldud kirjutised saavad tehtud selles keeles. Esitan mõned argumendid, miks tekstilise trükiväljundi jaoks on kontoritarkvarast turvalisem kasutada TeX'i:
+
+"The benefit to all this markup is that your documents look like you want them to look, not how MS Word decides is the best way. This is especially true for tables, lists and paragraph formatting. The resulting file (extension .tex) is also a lot smaller than a Word file, which means that your thesis backups are lightning-quick." [@getting]
+
+Juhendaja põhjendas kontoritarkvara vormingu vajadust seetõttu, et ta saaks faili lahti võtta ja vaadata, kuidas selle sisu on tehtud. Veel lihtsam on lahti võtta siinse lühireferaadi failid, mis asuvad kõik GitHubis [@kalmer_2022_piiskopintegreeritudloodusteadused]. RMD'failid on *R MarkDown*is kirjutatud sisutekstide failid, milles näeb samuti tekstisiseseid viiteid kui R-lähtekoodi. *references.bib*is on viited. TEX'failid on küljendus- ja kujundusfailid. Põhiline mall on *template.tex* ja tiitellehe oma on eraldi *title-page.tex*. Prerekvisiidid on määratletud failis *CSUniSchoolLabReport.cls*. Nt kõik esimese taseme pealkirjad algavad RMD-failides *#*'ga ja nende stiil on kirjeldatud failis *template.tex*:
+
+::: {.verbatim data-latex=""}
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Large}
+:::
+
+Selles komplekskäsus sätitakse esimese taseme pealkirja ehk *chapter*i stiil.
+
+Väljundina saan kasutada ka DOCX'vormingut ja vajadusel näitan sedagi. DOCX'faili saamiseks lasen esmalt DOCX'faili luua, misjärel muudan selles failis stiilid sobilikuks, misjärel omakorda lasen muudetud stiilidega faili kasutades uuesti DOCX'väljundi luua, mis on lõplik. Kuna minu jaoks on DOCX'i ja sarnaste vormingute igapäevane kasutamine jäänud minevikku, siis eelistan selliseid vorminguid ja vahendeid, mille üle on mul suurem voli. Lisan veel, et mul on juhtunud, et suure faili puhul muutub kontoritarkvaras faili avamine võimatuks või see avaneb krüptograafilise sisuga. Lisaks on võimalik RMD- ja TEX-kujul failide sisu paremini võrrelda.
+
+Viidetega toimisin järgmiselt: Vahel sain viite otse kätte, nt teadusartikli juurest. Kui see ei toiminud, siis proovisin automaatset andmete väljalugemist kasutades MyBib'i [@a2022_]. Kui MyBib sai andmete väljalugemisega veebiaadressilt hakkama, eksportisin viidete faili *BibTeX*'vormingusse ja kopeerisin faili lõpust kirje enda *references.bib*i. Kui MyBib andmeid välja ei lugenud, kopeerisin *The quick BibTeX guide*'st vastava kirje tüübi malli ja täitsin väljad käsitsi [@format].
+
+Selles lühireferaadis siin on sisuosas kasutuses järgnevad sisendid ja talitlused:
+
+```{r time-constants}
+S_IN_M <- 60
+M_IN_H <- 60
+H_IN_D <- 24
+D_IN_WEEK <- 7
+S_IN_H <- S_IN_M * M_IN_H
+```
+
+Vastavalt *Töölepingu seadusele* [@tlepingu]:
+
+```{r work-time}
+W_H_IN_D <- 8
+W_H_IN_WEEK <- 40
+VACATION_D_IN_A <- 28
+W_D_IN_WEEK <- W_H_IN_WEEK / W_H_IN_D
+W_H_IN_D_PER_H_IN_D <- W_H_IN_D / H_IN_D
+```
+
+Lähtudes Gregoriuse kalendrist [@mills_1993_quantities, p. 151]:
+
+```{r seconds-in-year}
+D_IN_A <- (365 * (400 - (400 / 4 - (400 / 100) + 400 / 400)) + 366 * (400 / 4 - (400 / 100) + 400 / 400)) / 400
+WEEKS_IN_A <- D_IN_A / D_IN_WEEK
+S_IN_A <- D_IN_A * 24 * 60 * 60
+```
+
+Funktsioonid:
+
+```{r functions-for-conversion}
+convert_from_h_to_s <- function(h) {
+  return(h * S_IN_H)
+}
+
+convert_from_s_to_h <- function(s) {
+  return(s / S_IN_H)
+}
+
+convert_from_h_to_d <- function(s) {
+  return(s / H_IN_D)
+}
+
+convert_from_d_to_working_d <- function(d) {
+  return(d / WORK_H_IN_D_PER_H_IN_D)
+}
+
+convert_from_work_d_to_weeks <- function(d) {
+  return(d / WORK_D_IN_WEEK)
+}
+```
+
+Üks ainepunkt ehk *EAP* on väärt 26 tundi, millest vähemalt 13 tundi iseseisvat ja kuni 13 tundi kontaktõpet [@study-rules]:
+
+```{r eap}
+EAP <- convert_from_h_to_s(26)
+```
